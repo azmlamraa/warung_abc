@@ -11,7 +11,7 @@ include 'includes/cek_session.php';
    <P>Anda login sebagai: <?php echo $_SESSION['role']; ?></p> 
 
 </ul>
-<?php if ($_SESSION['role'] == 'admin' ||  $_SESSION['role'] == 'gudang'){?>
+<?php if ($_SESSION['role'] == 'admin' ||  $_SESSION['role'] == 'gudang'){ ?>
    <li><a href="data_barang.php">Data Barang</a></li>
 <?php } ?>
 

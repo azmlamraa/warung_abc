@@ -3,7 +3,7 @@ include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
 $sql = "SELECT t.no_transaksi, t.tanggal, t.total_bayar, u.nama_lengkap AS nama_kasir
-        FROM tb_transaksi t
+        FROM tbl_transaksi t
         JOIN tbl_user u ON t.id_kasir = u.id_user
         ORDER BY t.tanggal DESC";
 $hasil = mysqli_query($koneksi, $sql);
@@ -14,15 +14,15 @@ $hasil = mysqli_query($koneksi, $sql);
 <body>
       <h1>Riwayat transaksi</h1>
       <table border="1" cellpading="6">
-      <tr><th>No. transaksi</th><th> Tanggal</th><th><th>kasir</th><th>total Bayar</th></tr>
+      <tr><th>No. transaksi</th><th> Tanggal</th><th><th>kasir</th><th>Total Bayar</th></tr>
       <?php while ($row = mysqli_fetch_assoc($hasil)) { ?>
       <tr>
           <td><?php echo $row['no_transaksi']; ?></td>
           <td><?php echo $row['tanggal']; ?></td>
           <td><?php echo $row['nama_kasir']; ?></td>
-          <td><?php echo number_format($row['total_bayar'], 0, ', '.'); ?></td>
-      <tr>
-      <?php> } ?>
+          <td><?php echo number_format($row['total_bayar'], 0, ',', '.'); ?></td>
+      </tr>
+      <?php } ?>
     </table>
     <p><a href="dashboard.php">kembali ke Dashboard</a></p>
 </body>

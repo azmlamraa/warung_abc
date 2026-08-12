@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'includes/cek-session.php';
+include 'includes/cek_session.php';
 include 'config/koneksi.php';
 
 if(!isset($_SESSION['keranjang'])) {
@@ -11,13 +11,13 @@ $id_barang = $_POST['id_barang'];
 $jumlah = (int) $_POST['jumlah'];
 
 $sql = "SELECT * FROM tbl_barang WHERE id_barang = '$id_barang'";
-$hasil ="mysqli_query($koneksi, $sql)";
+$hasil =mysqli_query($koneksi, $sql);
 $barang = mysqli_fetch_assoc($hasil);
 
 if($barang && $jumlah > 0 && $jumlah <= $barang ['stok']) {
     $subtotal = $barang['harga_satuan'] * $jumlah;
 
-    $_SESSION['keranjang'][id_barang] = array(
+    $_SESSION['keranjang'][$id_barang] = array(
         'nama_barang' => $barang['nama_barang'],
         'harga' => $barang['harga_satuan'],
         'jumlah' => $jumlah,

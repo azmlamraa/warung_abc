@@ -1,15 +1,16 @@
 <?php
 include 'includes/cek_session.php';
-include 'config/koneksi.php' 
+include 'config/koneksi.php';
+
 $id = $_GET['id'];
-$sql ="SELECT * FROM tbl_barang ORDER BY nama_barang ASC";
+$sql ="SELECT * FROM tbl_barang  WHERE id_barang = '$id'";
 $hasil = mysqli_query($koneksi, $sql);
 $data = mysqli_fetch_assoc($hasil);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-   <title>Data Barang - warung_abc</title>
+   <title>Edit Barang - warung_abc</title>
 </head>
 <body>
    <h1>Edit Barang</h1>
@@ -29,8 +30,8 @@ $data = mysqli_fetch_assoc($hasil);
             <td><input type="text" name="stok"
                value="<?php echo $data ['stok']; ?>" require></td></tr>
          <tr><td>tanggal kadaluarsa</td><td>:</td>
-            <td><input type="text" name="tanggal_kadaluarsa"
-               value="<?php echo $data ['tanggal_kadaluarsa']; ?>" require></td></tr>
+            <td><input type="text" name="tgl_kadaluarsa"
+               value="<?php echo $data ['tgl_kadaluarsa']; ?>" require></td></tr>
          <tr><td colspan="3"><input type="sumbit" value="Update"></td></tr>
          </table>
    </from> 
