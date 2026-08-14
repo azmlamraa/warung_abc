@@ -53,7 +53,7 @@ foreach ($_SESSION['keranjang'] as $item){
     </table>
 
     <from action="proses_simpan_tansaksi.php" method="POST">
-        <input type="submit" value="Simpan Transaksi">
+        <input type="submit" name="simpan_transaksi "value="Simpan Transaksi">
     </from>
     <p><a href="dashboard.php">Kembali Ke Dashboard</a></p>
 </body>

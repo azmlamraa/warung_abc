@@ -37,7 +37,7 @@ foreach ($_SESSION['keranjang'] as $id_barang => $item) {
 
 $waktu = date('Y-m-d H:i:s');
 $aktivitas ="transaksi: $no_transaksi";
-$log ="INSERT INTO tb_log (id_user, aktivitas, waktu) VALUES ('$id_kasir', '$aktivitas','$waktu')";
+$log ="INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user', '$aktivitas','$waktu')";
 mysqli_query($koneksi, $log);
 
 unset($_SESSION['keranjang']);

@@ -14,8 +14,8 @@ $data = mysqli_fetch_assoc($hasil);
 </head>
 <body>
    <h1>Edit Barang</h1>
-   <form action ="proses_edit_barang.php" nethod="POST">
-        <Input type="hidden" name="id_barang" value="<?php echo $data ['id_barang']; ?>">
+   <form action="proses_edit_barang.php" method="POST">
+        <input type="hidden" name="id_barang" value="<?php echo $data ['id_barang']; ?>">
         <table>
         <tr><td>Kode Barang</td><td>:</td>
             <td><input type="text" name="kode_barang"
@@ -32,7 +32,7 @@ $data = mysqli_fetch_assoc($hasil);
          <tr><td>tanggal kadaluarsa</td><td>:</td>
             <td><input type="text" name="tgl_kadaluarsa"
                value="<?php echo $data ['tgl_kadaluarsa']; ?>" require></td></tr>
-         <tr><td colspan="3"><input type="sumbit" value="Update"></td></tr>
+         <tr><td colspan="3"><input type="submit" value="Update"></td></tr>
          </table>
    </from> 
    <p><a href="data_barang.php">Kembali</a></p>
