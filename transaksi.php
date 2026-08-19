@@ -6,6 +6,8 @@ if (!isset($_SESSION['keranjang'])) {
     $_SESSION['keranjang'] = array();
 }
 
+$sql_pelanggan = "SELECT * FROM tbl_pelanggan ORDER BY nama_pelanggan ASC";
+$hasil_pelanggan = mysqli_query($koneksi, $sql_pelanggan);
 $daftar_barang = mysqli_query($koneksi, "SELECT * FROM tbl_barang WHERE stok > 0");
 $total = 0;
 foreach ($_SESSION['keranjang'] as $item){
@@ -53,7 +55,15 @@ foreach ($_SESSION['keranjang'] as $item){
     </table>
 
     <from action="proses_simpan_tansaksi.php" method="POST">
-        <input type="submit" name="simpan_transaksi "value="Simpan Transaksi">
+        pelanggan :
+        <select name = "id_pelanggan">
+        <option value="">--Pelanggan Umum--</option>
+        <?php while ($b = mysqli_fetch_assoc($hasil_pelanggan)) { ?>
+        <option value="<?php echo $p ['id_pelanggan']; ?> ">
+            <?php echo $b['nama_pelanggan']; ?> </option>
+        <?php } ?>
+</select>
+        <input type="submit" value="Simpan Transaksi">
     </from>
     <p><a href="dashboard.php">Kembali Ke Dashboard</a></p>
 </body>
