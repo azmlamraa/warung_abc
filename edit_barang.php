@@ -30,8 +30,7 @@ $data = mysqli_fetch_assoc($hasil);
             <td><input type="text" name="stok"
                value="<?php echo $data ['stok']; ?>" require></td></tr>
          <tr><td>tanggal kadaluarsa</td><td>:</td>
-            <td><input type="text" name="tgl_kadaluarsa"
-               value="<?php echo $data ['tgl_kadaluarsa']; ?>" require></td></tr>
+            <td><input type="date" name="tgl_kadaluarsa"require></td></tr>
          <tr><td colspan="3"><input type="submit" value="Update"></td></tr>
          </table>
    </from> 

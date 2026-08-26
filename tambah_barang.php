@@ -20,6 +20,6 @@
                 <tr><td colspan="3"><input type="submit" value="Simpan"></td></tr>
 </table>
 </form>
-<p><a href="date_barang.php">kembali</a></p>
+<p><a href="data_barang.php">kembali</a></p>
 </body>
 </html>

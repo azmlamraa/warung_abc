@@ -7,18 +7,17 @@ $kode = mysqli_real_escape_string($koneksi, $_POST['kode_barang']);
 $nama = mysqli_real_escape_string($koneksi, $_POST['nama_barang']);
 $harga = $_POST['harga_satuan'];
 $stok = $_POST['stok'];
-$exp = $_POST['tanggal_kadaluarsa'];
-$exp = $exp === '' ? 'NULL' : "'$exp'";
+$exp = $_POST['tgl_kadaluarsa'];
+$exp_sql = $exp === '' ? 'NULL' : "'$exp'";
 
-$sql = "UPDATE tbl_barang SET kode_barang='$kode', nama_barang='$nama', ";
-$sql = "harga_satuan='$harga', stok='$stok', tanggal_kadaluarsa=$exp_sql";
-$sql = "WHERE id_barang = '$id';"
+$sql = "UPDATE tbl_barang SET kode_barang='$kode', nama_barang='$nama',";
+$sql .= "harga_satuan='$harga', stok='$stok', tgl_kadaluarsa=$exp_sql";
 
-if (mysqli_query($koneksi. $sql)) 
+if (mysqli_query($koneksi, $sql)) {
     $id_user = $_SESSION['id_user'];
     $waktu =date('Y-m-d H:i:s');
     $aktivitas = "edit barang: $nama";
-    $log = "INSERT INTO tbl_log (id_user, aktivitas, waktu" VALUES ('$id_user','$aktivitas',
+    $log = "INSERT INTO tbl_log (id_user, aktivitas, waktu) VALUES ('$id_user','$aktivitas',
     '$waktu')";
     mysqli_query($koneksi, $log);
 
